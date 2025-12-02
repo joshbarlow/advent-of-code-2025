@@ -208,3 +208,4 @@ __marimo__/
 
 # hide advent of code input
 *input.txt*
+.DS_Store
