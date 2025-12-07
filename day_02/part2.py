@@ -1,7 +1,7 @@
 import string, re
 
 def importData():
-    with open('test_input.txt') as input_file:
+    with open('input.txt') as input_file:
         inputDataArray = input_file.readlines()
     cleanInputDataArray = []
     for line in inputDataArray:
@@ -15,11 +15,11 @@ def calculateIDS(inputDataArray):
     badID_count = 0
 
     for line in inputDataArray:
-        print(line)
+        ## print(line)
         lineSplit = line.split('-')
         intRange = list(range(int(lineSplit[0]), int(lineSplit[1])+1))
         for x in intRange:
-            m = re.search(r'(.+?)\1', str(x))
+            m = re.search(r"^(.+)\1+$", str(x))
             if m:
                 print("Repeated chunk:", m.group(1), ' in ', x)
                 badID_count += x
